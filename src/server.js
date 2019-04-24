@@ -1,4 +1,5 @@
 const express = require('express')
+const session = require('express-session')
 const nunjucks = require('nunjucks')
 const path = require('path') // trata caminhos do servidor
 
@@ -14,6 +15,13 @@ class App {
 
   middlewares () {
     this.express.use(express.urlencoded({ extended: false }))
+    this.express.use(
+      session({
+        secret: 'MyAppSecret',
+        resave: false,
+        saveUninitialized: false
+      })
+    )
   }
 
   views () {
