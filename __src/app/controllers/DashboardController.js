@@ -7,5 +7,4 @@ class DashboardController {
     return res.render('dashboard', { providers })
   }
 }
-
 module.exports = new DashboardController()
